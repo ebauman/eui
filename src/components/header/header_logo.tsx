@@ -13,7 +13,7 @@ import React, {
 } from 'react';
 import classNames from 'classnames';
 
-import { EuiIcon, IconType } from '../icon';
+import { EuiIcon, IconColor, IconType } from '../icon';
 import { CommonProps } from '../common';
 import { getSecureRelForTarget } from '../../services';
 import { validateHref } from '../../services/security/href_validator';
@@ -25,6 +25,7 @@ export type EuiHeaderLogoProps = CommonProps &
     target?: string;
     iconType?: IconType;
     iconTitle?: string;
+    iconColor?: IconColor;
     /**
      * ReactNode to render as this component's content
      */
@@ -34,6 +35,7 @@ export type EuiHeaderLogoProps = CommonProps &
 export const EuiHeaderLogo: FunctionComponent<EuiHeaderLogoProps> = ({
   iconType = 'logoElastic',
   iconTitle = 'Elastic',
+  iconColor = 'inherit',
   href,
   rel,
   target,
@@ -57,6 +59,7 @@ export const EuiHeaderLogo: FunctionComponent<EuiHeaderLogoProps> = ({
         className="euiHeaderLogo__icon"
         size="l"
         type={iconType}
+        color={iconColor}
       />
 
       {children && <span className="euiHeaderLogo__text">{children}</span>}
